@@ -62,8 +62,21 @@
 <footer class="py-5 bg-dark">
             <div class="container">
               <p class="m-0 text-center text-white">Copyright &copy; <?php echo $_settings->info('short_name') ?> 2023</p>
-              
+              <br>
+              <img src="<?php echo validate_image($_settings->info('logo')) ?>" width="140" height="40" class="center" alt="" loading="lazy">
+              <br>
+              <a href="/book_shop/admin/login.php">
+              <p href="/admin/login.php" class="m-0 text-center text-white">Admin</p>
+              </a>
           </div>
+          <style>
+             .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+          </style>
         </footer>
 
    

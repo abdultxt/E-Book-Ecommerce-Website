@@ -17,7 +17,6 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link" aria-current="page" href="./">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./?p=my_books">My Books</a></li>
                         <?php 
                         $cat_qry = $conn->query("SELECT * FROM categories where status = 1  limit 3");
                         $count_cats =$conn->query("SELECT * FROM categories where status = 1 ")->num_rows;
@@ -62,7 +61,7 @@
                             </span>
                         </a>
                         
-                            <a href="./?p=my_account" class="text-dark  nav-link"><b> Hi, <?php echo $_settings->userdata('firstname')?>!</b></a>
+                            <a href="./?p=my_account" class="text-dark  nav-link"><b> View Here, <?php echo $_settings->userdata('firstname')?>!</b></a>
                             <a href="logout.php" class="text-dark  nav-link"><i class="fa fa-sign-out-alt"></i></a>
                         <?php endif; ?>
                     </div>

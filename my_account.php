@@ -22,7 +22,7 @@
                                 <th>DateTime</th>
                                 <th>Transaction ID</th>
                                 <th>Amount</th>
-                                <th>Order Status</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>

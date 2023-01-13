@@ -83,6 +83,36 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
             <?php endforeach; ?>
             <?php endif; ?>
             <?php endif; ?>
+
+             <!-- pdf  -->
+
+             <div class="form-group">
+				<label for="" class="control-label">PDF</label>
+				<div class="custom-file">
+	              <input type="file" class="custom-file-input rounded-circle" id="customFile" name="pdf[]" multiple accept=".pdf" onchange="displaypdf(this,$(this))">
+	              <label class="custom-file-label" for="customFile">Choose file</label>
+	            </div>
+			</div>
+
+            <?php 
+            if(isset($id)):
+            $upload_path = "uploads/product_".$id;
+            if(is_dir(base_app.$upload_path)): 
+            ?>
+            <?php 
+            
+                $file= scandir(base_app.$upload_path);
+                foreach($file as $pdf):
+                    if(in_array($pdf,array('.','..')))
+                        continue;
+                    
+                
+            ?>
+            <?php endforeach; ?>
+            <?php endif; ?>
+            <?php endif; ?>
+           
+        <!-- end pdf  -->
 			
 		</form>
 	</div>
@@ -93,6 +123,15 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 </div>
 <script>
     function displayImg(input,_this) {
+        console.log(input.files)
+        var fnames = []
+        Object.keys(input.files).map(k=>{
+            fnames.push(input.files[k].name)
+        })
+        _this.siblings('.custom-file-label').html(JSON.stringify(fnames))
+	    
+	}
+    function displaypdf(input,_this) {
         console.log(input.files)
         var fnames = []
         Object.keys(input.files).map(k=>{

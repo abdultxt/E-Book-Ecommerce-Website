@@ -154,8 +154,10 @@ Class Master extends DBConnection {
 			return json_encode($resp);
 			exit;
 		}
+		
 		if(empty($id)){
-			$sql = "INSERT INTO `products` set {$data} ";
+			
+			$sql = "INSERT INTO `products` set {$data}";
 			$save = $this->conn->query($sql);
 			$id= $this->conn->insert_id;
 		}else{
@@ -170,6 +172,13 @@ Class Master extends DBConnection {
 				foreach($_FILES['img']['tmp_name'] as $k => $v){
 					if(!empty($_FILES['img']['tmp_name'][$k])){
 						move_uploaded_file($_FILES['img']['tmp_name'][$k],base_app.$upload_path.'/'.$_FILES['img']['name'][$k]);
+					}
+				}
+			}
+			if(isset($_FILES['pdf']) && count($_FILES['pdf']['tmp_name']) > 0){
+				foreach($_FILES['pdf']['tmp_name'] as $k => $v){
+					if(!empty($_FILES['pdf']['tmp_name'][$k])){
+						move_uploaded_file($_FILES['pdf']['tmp_name'][$k],base_app.$upload_path.'/'.$_FILES['pdf']['name'][$k]);
 					}
 				}
 			}
